@@ -1,0 +1,71 @@
+---
+import Gallery_Img from "../components/Gallery_Img.astro";
+import PrincipalSections from "../components/PrincipalSections.astro";
+
+// importar imagenes
+
+import img1 from "../assets/bon1.webp";
+import img2 from "../assets/bon2.webp";
+import img3 from "../assets/bon3.webp";
+import img4 from "../assets/bon4.webp";
+import img5 from "../assets/bon5.webp";
+import img6 from "../assets/bon6.webp";
+import img7 from "../assets/bon7.webp";
+import img8 from "../assets/bon8.webp";
+
+
+const images = [
+  { img: img1, alt: "Gallery Image 1" },
+  { img: img2, alt: "Gallery Image 2" },
+  { img: img3, alt: "Gallery Image 3" },
+  { img: img4, alt: "Gallery Image 4" },
+  { img: img5, alt: "Gallery Image 5" },
+  { img: img6, alt: "Gallery Image 6" },
+  { img: img7, alt: "Gallery Image 7" },
+  { img: img8, alt: "Gallery Image 8" },
+];
+---
+
+<section id="Galleria"> 
+  <PrincipalSections class="gallery-section"
+    PreSutitle="GALERÍA"
+    Subtitle="Momentos"
+    S_subtitle="Inolvidables"
+
+  />
+
+  <br>
+  <div class="Gallery">
+    {images.map((image) => <Gallery_Img img={image.img} alt={image.alt} />)}
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 4rem 1rem;
+    background: #000;
+    text-align: center;
+    color: #fff;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  .Gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    place-items: center;
+  }
+
+    @media (max-width: 768px) {
+      .Gallery {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+    }
+</style>

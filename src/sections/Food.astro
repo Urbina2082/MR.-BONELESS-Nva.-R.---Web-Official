@@ -1,0 +1,207 @@
+---
+import { FoodMrbonneles } from "../components/Consts/FoodMrbonneles";
+import PrincipalSections from "../components/PrincipalSections.astro";
+---
+
+<section class="container" id="Menu">
+  <PrincipalSections
+    PreSutitle="NUESTRO MENÚ"
+    Subtitle="Deliciosos"
+    S_subtitle="Platillos"
+    description="Explora nuestro menú lleno de opciones irresistibles, desde nuestros famosos boneless hasta deliciosas guarniciones y postres que te encantarán."
+  />
+  <br />
+  <div class="tabs">
+    {FoodMrbonneles.map((cat, i) => (
+        <button class="tab" type="button" data-index={i}>
+          <span>{cat.icon}</span>
+          {cat.name}
+        </button>
+      ))
+    }
+  </div>
+ 
+  <!-- GRID -->
+  <div class="food-grid" id="food-grid">
+    {
+      FoodMrbonneles[0].items.map((item) => (
+        <div class="food-card">
+          <div class="card-header">
+            <h4>{item.name}</h4>
+            {item.price && <span class="price">{item.price}</span>}
+          </div>
+          {item.desc && <p>{item.desc}</p>}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<!-- ✅ DATA SERIALIZADA CORRECTAMENTE -->
+<script define:vars={{ MENU_DATA: FoodMrbonneles }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const grid = document.getElementById("food-grid");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const items = MENU_DATA[index].items;
+
+        grid.innerHTML = items
+          .map(
+            (item) => `
+          <div class="food-card">
+            <div class="card-header">
+              <h4>${item.name}</h4>
+              ${item.price ? `<span class="price">${item.price}</span>` : ""}
+            </div>
+            ${item.desc ? `<p>${item.desc}</p>` : ""}
+          </div>
+        `,
+          )
+          .join("");
+      });
+    });
+
+    tabs[0]?.classList.add("active");
+  });
+</script>
+<style>
+  /* ================= CONTAINER ================= */
+  :global(.container) {
+    padding: 3rem 1rem;
+    background: oklch(98.5% .002 247.839);
+  }
+
+  /* ================= TABS ================= */
+  :global(.tabs) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  :global(.tab) {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #374151;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  :global(.tab:hover) {
+    background: #fff7f0;
+    border-color: #ffd7b5;
+  }
+
+  :global(.tab.active) {
+    background: linear-gradient(135deg, #ff7a00, #fe6a00);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(254, 106, 0, 0.35);
+  }
+
+  /* ================= GRID ================= */
+  :global(.food-grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.6rem;
+    transition: all 0.9s ease ;
+  }
+
+  /* Tablets */
+  @media (max-width: 1024px) {
+    :global(.food-grid) {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    :global(.food-grid) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ================= CARD ================= */
+  :global(.food-card) {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid #f1f1f1;
+    transition: all 0.35s ease;
+  }
+
+  :global(.food-card:hover) {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+    border-color: #ffe2c9;
+  }
+
+  /* ================= CARD HEADER ================= */
+  :global(.card-header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  :global(.card-header h4) {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+    transition: color 0.3s ease;
+  }
+
+  :global(.food-card:hover h4) {
+    color: #fe6a00;
+  }
+
+  /* ================= PRICE ================= */
+  :global(.price) {
+    color: #fe6a00;
+    font-weight: 800;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  /* ================= DESCRIPTION ================= */
+  :global(.food-card p) {
+    font-size: 0.9rem;
+    color: #9ca3af;
+    line-height: 1.45;
+  }
+
+  /* ================= MOBILE TABS SCROLL ================= */
+  @media (max-width: 640px) {
+    :global(.tabs) {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scroll-behavior: smooth;
+    }
+
+    :global(.tabs::-webkit-scrollbar) {
+      display: none;
+    }
+
+    :global(.tab) {
+      flex-shrink: 0;
+    }
+  }
+</style>

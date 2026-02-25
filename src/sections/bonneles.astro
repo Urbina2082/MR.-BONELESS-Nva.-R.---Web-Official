@@ -1,0 +1,282 @@
+---
+---
+
+<section class="combo-app" id="combo-app">
+
+  <!-- STEPS -->
+  <div class="steps">
+    <button class="step active" data-step="boneless">Tipo de Boneless</button>
+    <button class="step" data-step="salsa">Salsa Favorita</button>
+    <button class="step" data-step="size">Tamaño</button>
+    <button class="step" data-step="side">Acompañamiento</button>
+    <button class="step" data-step="drink">Bebida</button>
+  </div>
+
+  <!-- OPTIONS -->
+  <div class="options" id="options"></div>
+
+  <!-- SUMMARY -->
+  <div class="summary hidden" id="summary">
+    <h2>Tu combo perfecto es…</h2>
+
+    <div class="summary-grid">
+      <div><strong>TIPO DE BONELESS</strong><span id="s-boneless"></span></div>
+      <div><strong>SALSA FAVORITA</strong><span id="s-salsa"></span></div>
+      <div><strong>TAMAÑO</strong><span id="s-size"></span></div>
+      <div><strong>ACOMPAÑAMIENTO</strong><span id="s-side"></span></div>
+      <div><strong>BEBIDA</strong><span id="s-drink"></span></div>
+    </div>
+
+    <div class="actions">
+      <a id="wa" class="whatsapp" target="_blank">Ordenar por WhatsApp</a>
+      <button id="reset" class="reset">Armar otro combo</button>
+    </div>
+  </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const stepsData = {
+    boneless: ["Clásicos", "BBQ", "Buffalo", "Mango Habanero"],
+    salsa: ["BBQ Ahumada", "Búfalo", "Mango Habanero", "Lemon Pepper"],
+    size: ["Chico (10 pzas)", "Mediano (20 pzas)", "Grande (40 pzas)"],
+    side: ["Papas con Queso", "Aros de Cebolla", "Sin acompañamiento"],
+    drink: ["Agua Fresca", "Refresco", "Limonada", "Michelada"]
+  };
+
+  const state = {
+    boneless: null,
+    salsa: null,
+    size: null,
+    side: null,
+    drink: null
+  };
+
+  let currentStep = "boneless";
+
+  const optionsEl = document.getElementById("options");
+  const summaryEl = document.getElementById("summary");
+
+  function renderOptions() {
+    optionsEl.innerHTML = stepsData[currentStep]
+      .map(opt => `
+        <button class="option ${state[currentStep] === opt ? "active" : ""}">
+          ${opt}
+        </button>
+      `).join("");
+
+    optionsEl.querySelectorAll(".option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state[currentStep] = btn.textContent;
+        renderOptions();
+        updateStepsUI();
+        checkSummary();
+      });
+    });
+  }
+
+  function updateStepsUI() {
+    document.querySelectorAll(".step").forEach(step => {
+      step.classList.toggle("active", step.dataset.step === currentStep);
+      step.classList.toggle("done", state[step.dataset.step]);
+    });
+  }
+
+  function checkSummary() {
+    const completed = Object.values(state).every(Boolean);
+
+    if (completed) {
+      document.getElementById("s-boneless").textContent = state.boneless;
+      document.getElementById("s-salsa").textContent = state.salsa;
+      document.getElementById("s-size").textContent = state.size;
+      document.getElementById("s-side").textContent = state.side;
+      document.getElementById("s-drink").textContent = state.drink;
+
+      const msg = `
+🍗 Mi combo ideal:
+Boneless: ${state.boneless}
+Salsa: ${state.salsa}
+Tamaño: ${state.size}
+Acompañamiento: ${state.side}
+Bebida: ${state.drink}
+      `.trim();
+
+      document.getElementById("wa").href =
+        "https://wa.me/52XXXXXXXXXX?text=" + encodeURIComponent(msg);
+
+      summaryEl.classList.remove("hidden");
+    }
+  }
+
+  document.querySelectorAll(".step").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentStep = btn.dataset.step;
+      renderOptions();
+      updateStepsUI();
+    });
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    Object.keys(state).forEach(k => state[k] = null);
+    summaryEl.classList.add("hidden");
+    currentStep = "boneless";
+    renderOptions();
+    updateStepsUI();
+  });
+
+  renderOptions();
+});
+</script>
+
+<style>
+/* ===== BASE ===== */
+.combo-ui {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: radial-gradient(circle at top, #1b0d05 0%, #000 55%);
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* ===== STEPS ===== */
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.step {
+  padding: .45rem .95rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  background: #2b1400;
+  color: #ff9a3c;
+  opacity: .85;
+}
+
+.step.active {
+  background: linear-gradient(135deg, #ff7a00, #ff9a3c);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px #ff7a00;
+}
+
+/* ===== TITLE ===== */
+.step-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+}
+
+/* ===== OPTIONS ===== */
+.options {
+  max-width: 920px;
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1rem;
+}
+
+.option {
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0d0d0d, #060606);
+  border: 1px solid #1e1e1e;
+  color: #ddd;
+  text-align: left;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  border-color: #333;
+}
+
+.option.active {
+  background: linear-gradient(135deg, #ff7a00, #ff9a3c);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 12px 35px rgba(255,122,0,.45);
+}
+
+/* ===== SUMMARY ===== */
+.summary {
+  max-width: 920px;
+  margin: auto;
+  padding: 2.2rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #3a1800, #1a0900);
+  box-shadow: inset 0 0 0 1px rgba(255,122,0,.15);
+}
+
+.summary h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ===== SUMMARY GRID ===== */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.25)
+  );
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+.card span {
+  font-size: .7rem;
+  color: #ff9a3c;
+  letter-spacing: .05em;
+}
+
+.card strong {
+  display: block;
+  margin-top: .2rem;
+  font-size: .95rem;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.wa {
+  background: linear-gradient(135deg, #25d366, #1fb154);
+  color: #000;
+  padding: .85rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(37,211,102,.35);
+}
+
+.reset {
+  background: transparent;
+  border: 1px solid #555;
+  color: #fff;
+  padding: .85rem 1.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+</style>

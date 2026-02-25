@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+
+const { Location, adress, time, phone ,oinka} = Astro.props;
+
+import phoneIcon from "../assets/Icons/phone.webp";
+import timerIcon from "../assets/Icons/time.webp";
+import UbicacionIcon from "../assets/Icons/ubicacion.webp";
+---
+
+<div class="cards">
+  <a href={oinka}>
+   <Image class="icon" src={UbicacionIcon} alt="Location" width={20} height={20} />
+
+  <h3>{Location}</h3>
+
+    <div class="adress cardMint">
+      <Image src={UbicacionIcon} alt="Location" width={20} height={20}  style="filter: invert(48%) sepia(94%) saturate(3500%) hue-rotate(6deg) brightness(102%) contrast(101%);" /> {adress}
+    </div>
+    <div class="schedule cardMint">
+      <Image src={timerIcon} alt="Schedule" width={20} height={20}  style="filter: invert(48%) sepia(94%) saturate(3500%) hue-rotate(6deg) brightness(102%) contrast(101%);" /> {time}
+    </div>
+    <div class="phone cardMint">
+      <Image src={phoneIcon} alt="Phone" width={20} height={20}  style="filter: invert(48%) sepia(94%) saturate(3500%) hue-rotate(6deg) brightness(102%) contrast(101%);" /> {phone}
+    </div>
+  </a>
+  </div>
+
+
+<style>
+.cards {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  padding:30px 30px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 300px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+.cards:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  transition: all 0.8s ease;
+ 
+
+}
+
+.icon{
+  padding: 8px;
+border-radius: 10px;
+background: #ff660039;
+
+filter: invert(48%) sepia(94%) saturate(3500%) hue-rotate(6deg) brightness(102%) contrast(101%);
+}
+
+
+
+.cards:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.cardMint {
+  display: flex;
+
+  align-items: center;
+  gap: .5rem;
+  margin-top: 10px;
+  font-size: .9rem;
+  color: #00000083;
+  font-weight: 300;
+}
+
+h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: Clamp(1.1rem, 1.3vw, 1.5rem);
+}
+
+
+img
+
+
+</style>

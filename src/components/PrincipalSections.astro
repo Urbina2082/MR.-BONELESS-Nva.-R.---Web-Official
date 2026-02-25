@@ -1,0 +1,44 @@
+---
+const { PreSutitle,Subtitle,S_subtitle,description } = Astro.props;
+---
+ 
+<div class="Principal">
+    <p class="subtitulo">{PreSutitle}</p>
+    <h2>{Subtitle} <span>{S_subtitle}</span></h2>
+    <p>
+      {description}
+    </p>
+</div>
+
+<style>
+
+.Principal {
+   
+    margin: 3rem auto;
+   
+  }
+
+  .subtitulo {
+    text-align: center;
+    color: #ff6600;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  h2 span {
+    color: #ff6600;
+  }
+  p {
+    color: #00000084;
+    
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 5px auto;
+    max-width: 700px;
+  }
+</style>

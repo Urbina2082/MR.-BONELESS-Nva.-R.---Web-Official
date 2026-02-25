@@ -1,0 +1,116 @@
+---
+import PrincipalSections from "../components/PrincipalSections.astro";
+
+const LasPromos = [
+  {
+    TitleDay: "Martes",
+    title: "Promo Martes",
+    Description:
+      "Hamburguesa Buffalo Ranch + Orden de Boneless",
+    price: "$ 240.00",
+  },
+  {
+    TitleDay: "Jueves",
+    title: "Promo Jueves",
+    Description:
+      "Disfruta 2 órdenes de boneless ",
+    price: "$ 280.00",
+  },
+  {
+    TitleDay: "Lun - Sab",
+    title: "Feliz Cumpleaños",
+    Description:
+      "Ven acompañado de 3 personas más y recibe un platillo de cortesía de nuestro menú.  Aplican platillos seleccionados.",
+    price: "Cortesia",
+  },
+];
+---
+
+<section class="promo-section" id="Promociones">
+  <PrincipalSections
+    PreSutitle="PROMOCIÓN"
+    Subtitle="Promociones"
+    S_subtitle="Especiales"
+    description="Aprovecha nuestras promociones y disfruta más por menos."
+  />
+  <div class="cardsPromo">
+    {
+      LasPromos.map((PromoDeLasPromo) => (
+        <div class="promotion">
+            <div class="conj">
+                 <h3>{PromoDeLasPromo.TitleDay}</h3>
+                 <span>{PromoDeLasPromo.price}</span>
+            </div>
+         
+
+          <h2>{PromoDeLasPromo.title}</h2>
+          <p>{PromoDeLasPromo.Description}</p>
+          
+        </div>
+      ))
+    }
+  </div>
+</section>
+<style>
+  .promo-section {
+    background-color: #f8f8f8;
+    padding: 5rem 1rem;
+    text-align: center;
+  }
+
+  .promo-section .cardsPromo {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+    .promo-section .promotion {
+        color: #fff;
+        /* background-color: #101828; background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
+        background-image: linear-gradient(120deg, #05080e 50%, #12212e 100%);
+        padding: 2rem 1.5rem;
+        border-radius: 29px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.205);
+        width: 400px;
+        text-align: start;
+      
+    }
+
+    .promo-section .promotion h3 {
+        font-size: 1.2rem;
+        color: #ff6600;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .promo-section .promotion h2 {
+        font-size: 1.5rem;
+        margin: 0.5rem 0;
+        font-weight: 400;
+    }
+
+    .promo-section .promotion p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: #f8f8f890;
+    }
+
+    .promo-section .promotion span {
+        font-size: .9rem;
+       
+        color: #ffffff;
+        background: #ff6600;
+        padding: 0.4rem 0.6rem;
+        border-radius: 16px;
+        font-weight: 400;
+    }
+
+    .promo-section .conj {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+</style>

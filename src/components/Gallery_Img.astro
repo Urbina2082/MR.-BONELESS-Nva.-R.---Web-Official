@@ -1,0 +1,17 @@
+---
+const {img,alt} = Astro.props;
+
+import {Image} from "astro:assets";
+---
+
+<Image class="gallery-image" src={img} alt={alt} />
+
+<style>
+.gallery-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+    
+}
+</style>

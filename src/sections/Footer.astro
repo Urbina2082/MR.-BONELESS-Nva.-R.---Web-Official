@@ -1,8 +1,7 @@
 ---
 import PrincipalSections from "../components/PrincipalSections.astro";
 
-import { Image } from "astro:assets";
-import logo from "../assets/Logo.webp";
+
 ---
 
 <footer class="footer">
@@ -10,7 +9,7 @@ import logo from "../assets/Logo.webp";
     <!-- Sección Logo y Descripción -->
     <div class="footer-section logo-section">
       <div class="logo">
-      <Image src={logo} alt="MR. Boneless Logo" width="80" height="80" />
+          <img class="logo" src="/Logo.webp" alt="Logo MR. Boneless" width="120">
       </div>
       <h3>MR. BONELESS</h3>
       <p>Las mejores boneless y alitas de la ciudad. Sabor, calidad y pasión en cada platillo.</p>
@@ -87,13 +86,7 @@ import logo from "../assets/Logo.webp";
     align-items: flex-start;
   }
 
-  .logo {
-    margin-bottom: 15px;
-  }
-
-  .logo svg {
-    animation: spin 0.3s ease-in-out;
-  }
+ 
 
   .footer-section h3 {
     font-size: 1.2rem;

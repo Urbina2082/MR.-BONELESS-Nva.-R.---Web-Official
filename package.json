@@ -1,34 +1,17 @@
 {
-  "name": "mr--boneless-nva--r--web-official",
-  "type": "module",
+  "name": "mr-boneless-web",
   "version": "0.0.1",
+  "private": true,
+  "type": "module",
   "engines": {
-  "node": ">=18"
-}
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.17.1"
-    
-  },
-  "description": "Página web oficial del restaurante **MR. Boneless Nva. Rosita**, desarrollada para mostrar el menú, información del negocio y brindar una presencia digital moderna y rápida.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Urbina2082/MR.-BONELESS-Nva.-R.---Web-Official.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Urbina2082/MR.-BONELESS-Nva.-R.---Web-Official/issues"
-  },
-  "homepage": "https://github.com/Urbina2082/MR.-BONELESS-Nva.-R.---Web-Official#readme"
-
-
-}
+  }
 }

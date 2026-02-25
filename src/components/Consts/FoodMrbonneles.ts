@@ -24,7 +24,7 @@ export const FoodMrbonneles = [
       },
       {
         id: "nachos-mr-boneless",
-        name: "Nachos Mr. Boneless",
+        name: "🎂 Nachos Mr. Boneless",
         desc: "Nachos bañados en queso cheddar, queso Chihuahua, pico de gallo, guacamole y arrachera",
         price: "$130.00",
       },
@@ -52,6 +52,12 @@ export const FoodMrbonneles = [
         desc: "5 piezas de dedos de queso bañados en Flamin Hot acompañados de salsa cheddar",
         price: "$110.00",
       },
+      {
+        id: "jalapenos-bombers",
+        name: "Jalapeños Bombers",
+        desc: "6 piezas , Acompanados de nuestro delicioso adereso de la casa ",
+        price: "$90.00",
+      },
     ],
   },
 
@@ -62,13 +68,13 @@ export const FoodMrbonneles = [
     items: [
       {
         id: "boneless",
-        name: "Boneless",
+        name: "🎂 Boneless",
         desc: "10 a 12 piezas de boneless acompañadas de papas fritas y aderezo ranch",
         price: "$150.00",
       },
       {
         id: "papa-boneless",
-        name: "Papa Boneless",
+        name: "🎂 Papa Boneless",
         desc: "Papas fritas bañadas en queso cheddar con boneless y aderezo ranch",
         price: "$150.00",
       },
@@ -80,7 +86,7 @@ export const FoodMrbonneles = [
       },
       {
         id: "tenders",
-        name: "Tenders",
+        name: "🎂 Tenders",
         desc: "6 piezas de tenders naturales acompañados de papas fritas y aderezo ranch",
         price: "$150.00",
       },
@@ -139,18 +145,18 @@ export const FoodMrbonneles = [
 
   {
     id: "hamburguesas-pollo",
-    name: "Hamburguesas de Pollo",
+    name: "Hamburguesas de Pollo ",
     icon: "🍗",
     items: [
       {
         id: "coleslaw-burger",
         name: "Coleslaw Burger",
         desc: "Pechuga de pollo empanizada, aderezo chipotle, queso americano y ensalada coleslaw",
-        price: "$110.00",
+        price: "$120.00",
       },
       {
         id: "buffalo-ranch-burger",
-        name: "Buffalo Ranch Burger",
+        name: "🎂 Buffalo Ranch Burger",
         desc: "Trozos de pechuga empanizada, queso manchego, salsa buffalo y aderezo ranch",
         price: "$110.00",
       },
@@ -162,9 +168,9 @@ export const FoodMrbonneles = [
       },
       {
         id: "crispy-chicken",
-        name: "Crispy Chicken",
+        name: "🎂 Crispy Chicken",
         desc: "Pechuga empanizada, queso americano, lechuga, tomate y cebolla morada",
-        price: "$100.00",
+        price: "$110.00",
       },
     ],
   },
@@ -176,9 +182,9 @@ export const FoodMrbonneles = [
     items: [
       {
         id: "clasica",
-        name: "Clásica",
+        name: "🎂 Clásica",
         desc: "Carne 100% de res, queso americano, pepinillos, lechuga, tomate y cebolla morada",
-        price: "$100.00",
+        price: "$110.00",
       },
       {
         id: "texana",
@@ -214,7 +220,7 @@ export const FoodMrbonneles = [
         id: "romi-burger",
         name: "Romi Burger",
         desc: "Doble carne 100% de res, queso americano, queso chihuahua, tocino, pepinillos, lechuga, tomate y cebolla morada",
-        price: "$140.00",
+        price: "$150.00",
       },
       {
         id: "salchiburger",
@@ -232,19 +238,25 @@ export const FoodMrbonneles = [
         id: "chorreada",
         name: "Chorreada",
         desc: "Carne 100% de res chorreada de queso cheddar, queso americano, tocino, lechuga, tomate y cebolla morada",
-        price: "$100.00",
+        price: "$110.00",
       },
       {
         id: "chipotle-burger",
         name: "Chipotle Burger",
         desc: "Carne 100% de res, queso americano, tocino, aderezo chipotle, lechuga, tomate y cebolla morada",
-        price: "$100.00",
+        price: "$110.00",
       },
       {
         id: "rellena",
         name: "Rellena",
         desc: "Doble carne 100% de res rellena de queso chihuahua, lechuga, tomate y cebolla morada",
         price: "$140.00",
+      },
+      {
+        id: "jalapeno",
+        name: "Jalapeño Bombers",
+        desc: "Carne 100% de res, queso americano, queso manchego, tocino, 3 jalapeños bombers y un toque de nuestro delicioso aderezo de la casa",
+        price: "$150.00",
       },
     ],
   },
@@ -348,15 +360,32 @@ export const FoodMrbonneles = [
       { id: "miller-high-life", name: "Miller High Life", price: "$40.00" },
     ],
   },
+  {
+    id: "to-drink",
+    name: "To Drink",
+    icon: "🥤",
+    items: [
+      { id: "refresco", name: "Refresco", price: "$30.00" },
+      { id: "Jugo", name: "Jugo", price: "$25.00" },
+      { id: "fuze-Tea", name: "Fuze Tea", price: "$35.00" },
+      { id: "Agua-Natural", name: "Agua Natural", price: "$20.00" },
+      { id: "Limonada-natural", name: "Limonada Natural", price: "$50.00" },
+      { id: "Limonada-Mineral", name: "Limonada Mineral", price: "$60.00" },
+      { id: "Limonada-Azul", name: "Limonada Azul", price: "$60.00" },
+      { id: "Limonada-Fresa", name: "Limonada Fresa", price: "$60.00" },
+      { id: "Pina-Colada", name: "Piña Colada", price: "$70.00" },
+      { id: "Margarita-Forzen", name: "Margarita Frozen", price: "$70.00" },
+    ],
+  },
 
   {
     id: "preparadas",
     name: "Preparadas",
     icon: "🍹",
     items: [
-      { id: "beermato", name: "Beermato", price: "+ $25.00" },
-      { id: "vaso-michelado", name: "Vaso Michelado", price: "+ $20.00" },
-      { id: "chelada", name: "Chelada", price: "+ $15.00" },
+      { id: "beermato", name: "Beermato", price: "+ $35.00" },
+      { id: "vaso-michelado", name: "Vaso Michelado", price: "+ $25.00" },
+      { id: "chelada", name: "Chelada", price: "+ $25.00" },
     ],
   },
 

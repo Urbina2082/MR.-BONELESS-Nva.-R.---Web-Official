@@ -389,59 +389,59 @@ export const FoodMrbonneles = [
     ],
   },
 
-  {
-    id: "dulce",
-    name: "Dulce",
-    icon: "🍰",
-    items: [
-      {
-        id: "galletas-sencillas",
-        name: "Galletas Sencillas",
-        desc: "Chispas de chocolate, red velvet y chocolate",
-        price: "$30.00",
-      },
-      {
-        id: "pastelitos",
-        name: "Pastelitos",
-        desc: "Sabores: Oreo, Milky Way, Mazapán y Piña Colada",
-        price: "$65.00",
-      },
-      {
-        id: "galleta-gourmet",
-        name: "Galleta Gourmet",
-        desc: "Triple chocolate rellenas de Nutella, Hershey’s y Oreo",
-        price: "$45.00",
-      },
-      {
-        id: "cuernitos-nuez",
-        name: "Cuernitos de Nuez",
-        desc: "Tradicionales cuernitos cubiertos de azúcar glass",
-        price: "$55.00",
-      },
-      {
-        id: "hojarascas",
-        name: "Hojarascas",
-        desc: "Galletas tradicionales tipo hojarasca",
-        price: "$45.00",
-      },
-      {
-        id: "brownies-cheesecake",
-        name: "Brownies Cheesecake",
-        desc: "Brownie con base de cheesecake",
-        price: "$30.00",
-      },
-      {
-        id: "brownies",
-        name: "Brownies",
-        desc: "Brownies sencillos, de nuez y con chispas de chocolate",
-        price: "$20.00",
-      },
-      {
-        id: "gomitas-enchiladas",
-        name: "Gomitas Enchiladas",
-        desc: "Gomitas enchiladas",
-        price: "$25.00",
-      },
-    ],
-  },
+  // {
+  //   id: "dulce",
+  //   name: "Dulce",
+  //   icon: "🍰",
+  //   items: [
+  //     {
+  //       id: "galletas-sencillas",
+  //       name: "Galletas Sencillas",
+  //       desc: "Chispas de chocolate, red velvet y chocolate",
+  //       price: "$30.00",
+  //     },
+  //     {
+  //       id: "pastelitos",
+  //       name: "Pastelitos",
+  //       desc: "Sabores: Oreo, Milky Way, Mazapán y Piña Colada",
+  //       price: "$65.00",
+  //     },
+  //     {
+  //       id: "galleta-gourmet",
+  //       name: "Galleta Gourmet",
+  //       desc: "Triple chocolate rellenas de Nutella, Hershey’s y Oreo",
+  //       price: "$45.00",
+  //     },
+  //     {
+  //       id: "cuernitos-nuez",
+  //       name: "Cuernitos de Nuez",
+  //       desc: "Tradicionales cuernitos cubiertos de azúcar glass",
+  //       price: "$55.00",
+  //     },
+  //     {
+  //       id: "hojarascas",
+  //       name: "Hojarascas",
+  //       desc: "Galletas tradicionales tipo hojarasca",
+  //       price: "$45.00",
+  //     },
+  //     {
+  //       id: "brownies-cheesecake",
+  //       name: "Brownies Cheesecake",
+  //       desc: "Brownie con base de cheesecake",
+  //       price: "$30.00",
+  //     },
+  //     {
+  //       id: "brownies",
+  //       name: "Brownies",
+  //       desc: "Brownies sencillos, de nuez y con chispas de chocolate",
+  //       price: "$20.00",
+  //     },
+  //     {
+  //       id: "gomitas-enchiladas",
+  //       name: "Gomitas Enchiladas",
+  //       desc: "Gomitas enchiladas",
+  //       price: "$25.00",
+  //     },
+  //   ],
+  // },
 ];

@@ -52,6 +52,13 @@ export const FoodMrbonneles = [
         desc: "5 piezas de dedos de queso bañados en Flamin Hot acompañados de salsa cheddar",
         price: "$110.00",
       },
+      
+      {
+        id: "jalapenos-bombers",
+        name: "Jalapeños Bombers",
+        desc: "4 piezas , Acompanados de nuestro delicioso adereso de la casa ",
+        price: "$70.00",
+      },
       {
         id: "jalapenos-bombers",
         name: "Jalapeños Bombers",
@@ -106,7 +113,7 @@ export const FoodMrbonneles = [
         id: "charola-mr-boneless",
         name: "Charola Mr. Boneless",
         desc: "40 piezas de boneless, papas fritas y aderezo ranch. Ideal para compartir",
-        price: "$520.00",
+        price: "$580.00",
       },
       {
         id: "mr-hocho",
@@ -333,7 +340,7 @@ export const FoodMrbonneles = [
       {
         id: "tropical-salad",
         name: "Tropical Salad",
-        desc: "Mezcla de lechugas, fresa, uva, piña en almíbar, queso chihuahua, arándanos, semillas de girasol, almendras y crutones. Incluye pechuga a la plancha y aderezo",
+        desc: "Mezcla de lechugas, fresa, uva, piña en almíbar, queso chihuahua, arándanos, semillas de girasol, almendras y crutones. Incluye pechuga a la plancha y aderezo ranch o Vinagreta de fresa segun su preferencia",
         price: "$140.00",
       },
       {
@@ -385,7 +392,7 @@ export const FoodMrbonneles = [
     items: [
       { id: "beermato", name: "Beermato", price: "+ $35.00" },
       { id: "vaso-michelado", name: "Vaso Michelado", price: "+ $25.00" },
-      { id: "chelada", name: "Chelada", price: "+ $25.00" },
+      { id: "chelada", name: "Chelada", price: "+ $20.00" },
     ],
   },
 
